@@ -5,32 +5,44 @@ If you're heading on a trip, Suitcase is the only app you need.
 
 Select your destination city, specify when you are going there, and Suitcase will provide you with all the essential information you need:
 
-	² Weather
-	² Travel  (flights, hotels, to be decided…)
-	² Restaurants
-	² Entertainment
-	² Local news
-	² (Exact scope to be decided)
-
 INITIAL PSEUDOCODE
 
-// The page loads with a generic background
+// The page loads with a generic background (Airport terminal backgroud)
 
-// The user will be presented with 3 input fields:
-	1. DESTINATION (City)
-	2. TRAVEL TIMEFRAME (Start | End Dates)
+// USER'S FIRST INTERACTION
+	2. User selects TRAVEL DATE (5 Day Range)
+		Start Date | End Date
+			//After dates are selected, suitcase icon starts shaking with message to "Click Me". If user clicks icon, A destination will be slected at random.
+	3. User selects city
+	4. User hits SUBMIT button
 
-// The user enters his/her inputs and hits the SUBMIT button
 
 // The input fields and submit button will remain visible, so the user can make further requests
 
 // The Suitcase app will then present 4 additional panes, e.g.
 	² Weather
-	² Travel
-	² Restaurants
+	² Accommodations
+	² Local
 	² Entertainment
 
-// (Any additional information will be requested via input fields)
+//CATEGORY BREAKDOWN
+	WEATHER (Open Weather API)
+	Day of Travel
+	5 Day forecast
+	ACCOMMODATIONS (Travel Payouts)
+		HOTEL - Topped Priced hotel based on stars. Will display top 5*, top 3*, top 1*
+			Data Given by us to API
+			- Room Type: King
+			- Num of Guest: 2
+	LOCAL (Yelp API)
+		BARS
+		RESTAURANT
+		CLUBS
+	ENTERTAINMENT (Trip Advisor API)
+		CONCERTS & SHOWS
+		SIGHTS & LANDMARKS
+		SHOPPING
+
 
 //For each of the Panes (topics), the app will the assemble the API query URL and make the AJAX call
 
@@ -38,16 +50,6 @@ INITIAL PSEUDOCODE
 
 // For each Pane, the relevant data will be pulled out of the object and displayed to that pane
 
-
-Advanced options:
-
-// The header contains a drop-down menu, allowing the user to choose between different categories of information, e.g.
-
-	² Travel  (including flights, hotels, tourist attractions)
-	² Entertainment  (including concerts, restaurants, theatre)
-	² News & Current Affairs  (content TBD)
-	² Food & Drink  
-	
 // Based on the category selected, different information will be displayed in the Panes
 
 
