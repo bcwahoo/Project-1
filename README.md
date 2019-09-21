@@ -1,7 +1,7 @@
-CONCEPT:  SUITCASE
+﻿CONCEPT:  SUITCASE
 
 Concept overview: 
-If you're heading on a trip, Suitcase is all you need.
+If you're heading on a trip, Suitcase is the only app you need.
 
 Select your destination city, specify when you are going there, and Suitcase will provide you with all the essential information you need:
 
