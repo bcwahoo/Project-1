@@ -10,7 +10,7 @@ INITIAL PSEUDOCODE
 // The page loads with a generic background (Airport terminal backgroud)
 
 // USER'S FIRST INTERACTION
-	2. User selects TRAVEL DATE (14 Day Range)
+	2. User selects TRAVEL DATE (5 Day Range)
 		Start Date | End Date
 			//After dates are selected, suitcase icon starts shaking with message to "Click Me". If user clicks icon, A destination will be slected at random.
 	3. User selects city
@@ -27,10 +27,13 @@ INITIAL PSEUDOCODE
 
 //CATEGORY BREAKDOWN
 	WEATHER (Open Weather API)
-	ACCOMMODATIONS (Trip Advisor API)
-		FLIGHT
-		HOTEL
-		PUBLIC TRANSPORTATION
+	Day of Travel
+	5 Day forecast
+	ACCOMMODATIONS (Travel Payouts)
+		HOTEL - Topped Priced hotel based on stars. Will display top 5*, top 3*, top 1*
+			Data Given by us to API
+			- Room Type: King
+			- Num of Guest: 2
 	LOCAL (Yelp API)
 		BARS
 		RESTAURANT
