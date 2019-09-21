@@ -25,14 +25,17 @@
 <body>
 
     <div class="container">
-        <div class="col-lg-5 col-sm-12">
-            <form class="form-inline my-2 my-lg-0">
-                <input id="destCity" class="form-control mr-sm-2" type="search" placeholder="Where do you want to go?"
-                    aria-label="Search">
-                <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
+        <form class="form-inline my-2 my-lg-0">
+            <input id="destCity" class="form-control mr-sm-2" type="search" placeholder="Where do you want to go?"
+                aria-label="Search">
+            <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
+
+    <div class="container">
+        <div id="weatherOutput"></div>
+    </div>
+
 
     <!--Link to game script-->
     <script src="assets/java/apis.js"></script>
