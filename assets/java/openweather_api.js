@@ -1,32 +1,15 @@
+function callOpenWeather(destCity) {
+
 var apiKey = "b335dca47af9b740159d13bca7acffe4";
 var searchCity = "";
 var startDate = "2019-09-24";
 var endDate = "2019-09-30";
 var weatherDetails = [{ date: "", city: "", country: "", weather: "", maxtemp: "", wind: "" }];
 
-// This function handles events where one button is clicked
-$("#searchBtn").on("click", function (event) {
-
-    // event.preventDefault() prevents the form from trying to submit itself.
-    // We're using a form so that the user can hit enter instead of clicking the button if they want
-    event.preventDefault();
-
-    // This line will grab the text from the input box
-    searchCity = $("#destCity").val().trim();
-
-    // This line will grab the startDate from the input box
-    startDate = $("#startDate").val().trim();
-
-    // This line will grab the endDate from the input box
-    endDate = $("#endDate").val().trim();
-});
-
-
-$(document.body).on("click", "#searchBtn", function () {
 
     // Constructing a queryURL using the animal name
     // 5 day / 3-hourly weather forecast for selected city (WORKING)
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchCity + "&APPID=" + apiKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + destCity + "&APPID=" + apiKey;
 
 
     // Performing an AJAX request with the queryURL
@@ -82,6 +65,5 @@ $(document.body).on("click", "#searchBtn", function () {
             });
 
         });
-});
-
+}
 

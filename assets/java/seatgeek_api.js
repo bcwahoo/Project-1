@@ -1,15 +1,9 @@
-var clientID = "MTg1ODQzODR8MTU2OTM2NjgzOC4zNQ";
-var searchCity = "";
-var startDate = "2019-09-24";
-var endDate = "2019-09-30";
-var eventType = "";
+function callSeatGeek(destCity, fromDt, tillDt) {
+    eventType = "concert";
+    callAPI(destCity, fromDt, tillDt, eventType);
+}
 
-// This function handles events where one button is clicked
-$("#searchBtn").on("click", function (event) {
-
-    // event.preventDefault() prevents the form from trying to submit itself.
-    // We're using a form so that the user can hit enter instead of clicking the button if they want
-    event.preventDefault();
+$(document.body).on("click", "#concertList", function () {
 
     // This line will grab the text from the input box
     searchCity = $("#destCity").val().trim();
@@ -23,38 +17,56 @@ $("#searchBtn").on("click", function (event) {
     endDate = $("#endDate").val().trim();
     console.log("endDate: " + endDate);
 
-
-});
-
-
-$(document.body).on("click", "#searchBtn", function () {
-    eventType = "concert";
-    callAPI(eventType);
-});
-
-$(document.body).on("click", "#concertList", function () {
     eventType = "Concert";
-    callAPI(eventType);
+    callAPI(searchCity, startDate, endDate, eventType);
 });
 
 $(document.body).on("click", "#theaterList", function () {
+
+    // This line will grab the text from the input box
+    searchCity = $("#destCity").val().trim();
+    console.log("searchCity: " + searchCity);
+
+    // This line will grab the startDate from the input box
+    startDate = $("#startDate").val().trim();
+    console.log("startDate: " + startDate);
+
+    // This line will grab the endDate from the input box
+    endDate = $("#endDate").val().trim();
+    console.log("endDate: " + endDate);
+
     eventType = "Theater";
-    callAPI(eventType);
+    callAPI(searchCity, startDate, endDate, eventType);
 });
 
 $(document.body).on("click", "#sportsList", function () {
+
+    // This line will grab the text from the input box
+    searchCity = $("#destCity").val().trim();
+    console.log("searchCity: " + searchCity);
+
+    // This line will grab the startDate from the input box
+    startDate = $("#startDate").val().trim();
+    console.log("startDate: " + startDate);
+
+    // This line will grab the endDate from the input box
+    endDate = $("#endDate").val().trim();
+    console.log("endDate: " + endDate);
+
     eventType = "Sports";
-    callAPI(eventType);
+    callAPI(searchCity, startDate, endDate, eventType);
 });
 
 
-function callAPI(eventType) {
+function callAPI(destCity, fromDate, tillDate, eventType) {
+
+    var clientID = "MTg1ODQzODR8MTU2OTM2NjgzOC4zNQ";
 
     // Constructing a queryURL using the animal name
     var queryURL = "https://api.seatgeek.com/2/events?venue.city=" +
-        encodeURIComponent(searchCity) +
-        "&datetime_utc.gte=" + startDate +
-        "&datetime_utc.lte=" + endDate +
+        encodeURIComponent(destCity) +
+        "&datetime_utc.gte=" + fromDate +
+        "&datetime_utc.lte=" + tillDate +
         "&taxonomies.name=" + eventType +
         "&per_page=25" +
         "&client_id=" + clientID;
