@@ -20,6 +20,13 @@
     <!-- Link html to the CSS stylesheet -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+    <!-- Charts.js Reference -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
 </head>
 
 <body>
@@ -28,9 +35,9 @@
         <form class="form-inline my-2 my-lg-0">
             <input id="destCity" class="form-control mr-sm-2" type="search" placeholder="Where do you want to go?"
                 aria-label="Search">
-                <input id="startDate" class="form-control mr-sm-2" type="search" placeholder="When will you arrive?"
+            <input id="startDate" class="form-control mr-sm-2" type="search" placeholder="When will you arrive?"
                 aria-label="Search">
-                <input id="endDate" class="form-control mr-sm-2" type="search" placeholder="When will you depart?"
+            <input id="endDate" class="form-control mr-sm-2" type="search" placeholder="When will you depart?"
                 aria-label="Search">
 
             <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -38,19 +45,21 @@
     </div>
 
     <div class="container">
-        <div id="weatherOutput"></div>
+        <div id="weatherOutput">
+            <canvas id="myChart" width="200" height="200"></canvas>
+        </div>
     </div>
 
     <div class="container">
-            <div id="concertsOutput"></div>
-        </div>
-    
+        <div id="concertsOutput"></div>
+    </div>
+
 
 
     <!--Link to game script-->
-    <!-- <script src="assets/java/openweather_api.js"></script> -->
+    <script src="assets/java/openweather_api.js"></script>
 
-    <script src="assets/java/seatgeek_api.js"></script>
+    <!-- <script src="assets/java/seatgeek_api.js"></script> -->
 
 
     <script type="text/javascript">
