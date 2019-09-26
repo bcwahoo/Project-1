@@ -52,6 +52,15 @@ INITIAL PSEUDOCODE
 
 // Based on the category selected, different information will be displayed in the Panes
 
+//CLASS DECLEARATION
+
+	* main-container: container that will hold the entire app within
+	* sc-main: container that with hold logo and form within
+	* sc-local: container that will hold local api and content
+	* sc-weather: container that will hold weather api and content
+	* sc-hotel: container that will hold hotel api and content
+	* sc-ent: container that will hold enttertainment api and content
+
 
 Technologies to be used:
 

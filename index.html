@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 
-<html lang="en-us">
+<html>
 
 <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <meta charset="UTF-8">
-    <title>NJIB Suitcase Sandpit</title>
-
-    <!-- Link html to CSS reset -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+   <!-- Link html to CSS reset -->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
     <!-- Added link to the jQuery Library -->
@@ -25,36 +31,53 @@
 
     <!-- Moment.js Reference -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
-
 </head>
 
 <body>
-
-    <div class="container">
-        <form class="form-inline my-2 my-lg-0">
-            <input id="destCity" class="form-control mr-sm-2" type="search" placeholder="Where do you want to go?"
-                aria-label="Search">
-            <input id="startDate" class="form-control mr-sm-2" type="search" placeholder="When will you arrive?"
-                aria-label="Search">
-            <input id="endDate" class="form-control mr-sm-2" type="search" placeholder="When will you depart?"
-                aria-label="Search">
-
-            <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-
-    <div class="container">
-        <div id="weatherOutput">
-            <canvas id="myChart" width="200" height="200"></canvas>
+    <div class="container main center-align">
+        <p>IS THERE SOMETHING HERE</p>
+        <div class="row">
+            <div class="box-local card-panel hoverable col s12 m5 #00acc1 cyan darken-1 left">LOCAL DIV</div>
+            <div class="box-weather card-panel hoverable col s12 m5 #00897b teal darken-1 right">WEATHER DIV
+              // Placeholder for weather graph
+              <canvas id="myChart" width="200" height="200"></canvas>
+          </div>
         </div>
+
+        <div class="row">
+            <div class="col m5 offset-s3">
+                <div class="round-box card-panel hoverable #e53935 red darken-1">
+                    <div class="row">
+                        <a class="brand-logo center">
+                            <img class="responsive-img col s4 offset-s4 center-align" src="assets/images/SuitCase.png"
+                            alt="SuitCAse logo">
+                        </a>
+                    </div>
+                    <div class="row">
+                            <form class = "col s12">
+                                    <div class = "row">               
+                                       <label>vkvgvgvjhjhjkkjSelect A Travel Date.dffsddfsdfd</label>            
+                                       <input type = "date" class = "datepicker" />    
+                                    </div>            
+                                 </form>    
+                        <div class="input-field col s10">
+                            <input value="Where would you like to go?" id="location" type="text" class="validate">
+                            <label class="active" for="location">Enter a Destination</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box-hotel card-panel hoverable col s12 m5 #ba68c8 purple lighten-2 left">HOTEL DIV</div>
+            <div class="box-ent card-panel hoverable col s12 m5 #43a047 green darken-1 right">ENTERTAINMENT DIV</div>
+        </div>
+
     </div>
+    <!--------- Here is the end of "Main Container"--- -->
 
-    <div class="container">
-        <div id="concertsOutput"></div>
-    </div>
-
-
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!--Link to app script files-->
     <script src="assets/java/openweather_api.js"></script>
@@ -71,13 +94,13 @@
             event.preventDefault();
 
             // This line will grab the text from the input box
-            searchCity = $("#destCity").val().trim();
+            searchCity = $("#location").val().trim();
 
             // This line will grab the startDate from the input box
-            startDate = $("#startDate").val().trim();
+            startDate = $(".startdatepicker").val().trim();
 
             // This line will grab the endDate from the input box
-            endDate = $("#endDate").val().trim();
+            endDate = $("#enddatepicker").val().trim();
         
             callSeatGeek(searchCity,startDate,endDate);
             callOpenWeather(searchCity);
@@ -86,14 +109,8 @@
 
     </script>
 
-
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
-
-    <!-- Script -->
-    <script>
-
-    </script>
 
 </body>
 
