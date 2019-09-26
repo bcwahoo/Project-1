@@ -28,7 +28,7 @@ $("#searchBtn").on("click", function (event) {
 
 
 $(document.body).on("click", "#searchBtn", function () {
-
+  
     // Constructing a queryURL using the animal name
     var queryURL = "https://api.seatgeek.com/2/events?venue.city=" + encodeURIComponent(searchCity) + "&datetime_utc.gte=" + startDate + "&datetime_utc.lte=" + endDate + "&taxonomies.name=concert&client_id=" + clientID;
     console.log("queryURL: " + queryURL);
@@ -42,26 +42,29 @@ $(document.body).on("click", "#searchBtn", function () {
         .then(function (response) {
 
             console.log(response);
-
-            var concertsP = $("<p>").text("Concerts while you are there:");
-
-            // Log list of concerts to the console
+            var eventsP = $("<p>");
+            // Write list of concerts to the DOM
+            $(eventsP).append("<button id='concertsList'>Concerts</button>");
+            $(eventsP).append("<button id='theaterList'>Theater</button>");
+            $(eventsP).append("<button id='sportsList'>Sports</button>");
+            $(eventsP).append("<br/>" + "Concerts while you are there:");
             for (var i=0; i < response.events.length; i++) {
             console.log(response.events[i].datetime_local + ": " + response.events[i].title);
-            $(concertsP).append("<br/>" + "<img width=30 height=30 src = " + response.events[i].performers[0].image + ">");
-            $(concertsP).append("  " + 
+            $(eventsP).append("<br/>" + "<img width=30 height=30 src = " + response.events[i].performers[0].image + ">");
+            $(eventsP).append("  " + 
             response.events[i].datetime_local[5] + 
             response.events[i].datetime_local[6] + 
-            response.events[i].datetime_local[7] + 
+            "/" + 
             response.events[i].datetime_local[8] + 
             response.events[i].datetime_local[9] + 
             // response.events[i].datetime_local[10] + 
             ": " + response.events[i].title);
             };
 
-            $("#concertsOutput").prepend(concertsP);
+            $("#concertsOutput").prepend(eventsP);
 
         });
 });
+
 
 
