@@ -39,7 +39,7 @@
         <div class="row">
             <div class="box-local card-panel hoverable col s12 m5 #00acc1 cyan darken-1 left">LOCAL DIV</div>
             <div class="box-weather card-panel hoverable col s12 m5 #00897b teal darken-1 right">WEATHER DIV
-              // Placeholder for weather graph
+              <!-- Placeholder for weather graph --->
               <canvas id="myChart" width="200" height="200"></canvas>
           </div>
         </div>
@@ -50,19 +50,21 @@
                     <div class="row">
                         <a class="brand-logo center">
                             <img class="responsive-img col s4 offset-s4 center-align" src="assets/images/SuitCase.png"
-                            alt="SuitCAse logo">
+                            alt="SuitCase logo">
                         </a>
                     </div>
                     <div class="row">
                             <form class = "col s12">
                                     <div class = "row">               
-                                       <label>vkvgvgvjhjhjkkjSelect A Travel Date.dffsddfsdfd</label>            
+                                       <label>Select A Travel Date</label>            
                                        <input type = "date" class = "datepicker" />    
                                     </div>            
                                  </form>    
                         <div class="input-field col s10">
                             <input value="Where would you like to go?" id="location" type="text" class="validate">
                             <label class="active" for="location">Enter a Destination</label>
+                            <!--Search Button placeholder-->
+                            <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </div>
                     </div>
                 </div>
@@ -74,7 +76,7 @@
         </div>
 
     </div>
-    <!--------- Here is the end of "Main Container"--- -->
+    <!-- Here is the end of "Main Container" -->
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -84,12 +86,13 @@
 
     <script src="assets/java/seatgeek_api.js"></script>
 
+    <script src="assets/java/zomato_api.js"></script>
+
 
     <script type="text/javascript">
 
         $("#searchBtn").on("click", function (event) {
 
-            // event.preventDefault() prevents the form from trying to submit itself.
             // We're using a form so that the user can hit enter instead of clicking the button if they want
             event.preventDefault();
 
@@ -97,13 +100,15 @@
             searchCity = $("#location").val().trim();
 
             // This line will grab the startDate from the input box
-            startDate = $(".startdatepicker").val().trim();
+            startDate = $(".datepicker").val().trim();
 
             // This line will grab the endDate from the input box
-            endDate = $("#enddatepicker").val().trim();
+            //END DATE NEEDS TO BE ADDED TO INDEX FILE
+            endDate = $(".datepicker").val().trim();
         
             callSeatGeek(searchCity,startDate,endDate);
             callOpenWeather(searchCity);
+            // callZomato(searchCity);
         
         });
 
