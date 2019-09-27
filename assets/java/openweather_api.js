@@ -19,10 +19,14 @@ var weatherDetails = [{ date: "", city: "", country: "", weather: "", maxtemp: "
     })
         // After data comes back from the request
         .then(function (response) {
+
+            // $(".box-weather").html("");
+
             var weatherP = $("<p>").text("City: " + response.city.name);
             weatherP.append("<br/>" + "Conditions: " + response.list[0].weather[0].main);
 
-            $("#weatherOutput").prepend(weatherP);
+            $(".box-weather").prepend(weatherP);
+            // $("#weatherOutput").prepend(weatherP);
 
             // Graphing output
             var ctx = document.getElementById('myChart').getContext('2d');
