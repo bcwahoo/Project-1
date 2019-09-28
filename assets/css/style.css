@@ -7,10 +7,10 @@ body {
   background-color: #464646;
 }
 .main {
-  width: 90%;
-  margin: 10% 5%;
+  width: 80%;
+  margin: 10%;
   padding: 10px;
-  border: 2px solid #dddddd;
+  /* border: 2px solid #dddddd; */
   flex: 1 0 auto; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
 }
 .round-box {
