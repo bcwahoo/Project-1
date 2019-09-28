@@ -6,15 +6,15 @@ function callSeatGeek(destCity, fromDt, tillDt) {
 $(document.body).on("click", "#concertList", function () {
 
     // This line will grab the text from the input box
-    searchCity = $("#destCity").val().trim();
+    searchCity = $("#location").val().trim();
     console.log("searchCity: " + searchCity);
 
     // This line will grab the startDate from the input box
-    startDate = $("#startDate").val().trim();
+    startDate = $(".datepicker").val().trim();
     console.log("startDate: " + startDate);
 
     // This line will grab the endDate from the input box
-    endDate = $("#endDate").val().trim();
+    endDate = $(".datepicker").val().trim();
     console.log("endDate: " + endDate);
 
     eventType = "Concert";
@@ -24,15 +24,15 @@ $(document.body).on("click", "#concertList", function () {
 $(document.body).on("click", "#theaterList", function () {
 
     // This line will grab the text from the input box
-    searchCity = $("#destCity").val().trim();
+    searchCity = $("#location").val().trim();
     console.log("searchCity: " + searchCity);
 
     // This line will grab the startDate from the input box
-    startDate = $("#startDate").val().trim();
+    startDate = $(".datepicker").val().trim();
     console.log("startDate: " + startDate);
 
     // This line will grab the endDate from the input box
-    endDate = $("#endDate").val().trim();
+    endDate = $(".datepicker").val().trim();
     console.log("endDate: " + endDate);
 
     eventType = "Theater";
@@ -42,15 +42,15 @@ $(document.body).on("click", "#theaterList", function () {
 $(document.body).on("click", "#sportsList", function () {
 
     // This line will grab the text from the input box
-    searchCity = $("#destCity").val().trim();
+    searchCity = $("#location").val().trim();
     console.log("searchCity: " + searchCity);
 
     // This line will grab the startDate from the input box
-    startDate = $("#startDate").val().trim();
+    startDate = $(".datepicker").val().trim();
     console.log("startDate: " + startDate);
 
     // This line will grab the endDate from the input box
-    endDate = $("#endDate").val().trim();
+    endDate = $(".datepicker").val().trim();
     console.log("endDate: " + endDate);
 
     eventType = "Sports";
@@ -81,7 +81,7 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
         // After data comes back from the request
         .then(function (response) {
 
-            $("#concertsOutput").html("");
+            $(".box-ent").html("");
 
             console.log(response);
             var eventsP = $("<p>");
@@ -108,8 +108,9 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
                         ": " + response.events[i].title);
                 };
             }
-
-            $("#concertsOutput").prepend(eventsP);
+debugger;
+            // $("#concertsOutput").prepend(eventsP);
+            $(".box-ent").prepend(eventsP);
 
         });
 }
