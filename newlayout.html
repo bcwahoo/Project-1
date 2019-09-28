@@ -18,89 +18,69 @@
 
 <body>
 
-    <!-- Data Input here -->
+    <!-- Data Input & Modal Setup -->
     <div class="main">
         <div class="row">
             <div class="col s12 m6 offset-m3">
-                
+
                 <ul class="collapsible hoverable">
                     <li class="active">
                         <div class="collapsible-header flow-text center-align">
-                            <i class="material-icons">filter_drama</i>SuitCase</div>
-                       
+                            <!-- Modal Trigger -->
+                            <a class=" modal-trigger center-align" href="#modal1">
+                                Click Here to Start SuitCase
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </div>
-        </div>
-
-
-
-
-        <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
-            MODAL
-        </a>
-
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
                     <div class="row">
-                            <form action="" class="col s12">
-                                <!--     Start Date     -->
-                                <input type="text" class="datepicker" id="start-date">
-                                <label for="start-date">When do you want to travel?</label>
-                                <!--     End Date       -->
-                                <input type="text" class="datepicker" id="start-date">
-                                <label for="end-date">When do you want to return?</label>
-                                <!--    Destinition     -->
-                                <input placeholer="U.S. Cities Only" id="dest-city" type="text"
-                                    class="validate">
-                                <label for="dest-city">Where do you want to go?</label>
-                                <br /><br />
-                                <!--    Submit Button   -->
-                                <button class="btn waves-effect waves-light col s3 offset-s4" type="submit"
-                                    name="action">Submit
-                                    <i class="material-icons right">send</i>
-                                </button>
-                            </form>
-                        </div>
-            
+                        <form name="suitcase" action="" class="col s12">
+                            <!--     Start Date     -->
+                            <input type="text" class="datepicker" id="startdatepicker">
+                            <label for="start-date">When do you want to travel?</label>
+                            <!--     End Date       -->
+                            <input type="text" class="datepicker" id="startdatepicker">
+                            <label for="startdatepicker">When do you want to return?</label>
+                            <!--    Destinition     -->
+                            <input placeholer="U.S. Cities Only" id="location" type="text" class="validate">
+                            <label for="location">Where do you want to go?</label>
+                            <br /><br />
+                            <!--    Submit Button   -->
+                            <button class="btn waves-effect waves-light col s12" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
         <!-- Main Content-->
 
         <div class="row">
-
             <!--API 1 - WEATHER-->
-
             <ul class="collapsible col s12 m8 l5 hoverable left">
                 <li>
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Weather</div>
                     <div class="collapsible-body teal lighten-2">
-                        <div class="card-panel ">This is a card panel with a teal lighten-2 class
+                        <div class="card-panel ">
+                            <div class="row">
+                                <!--First Class of the API will go here-->
+                                <div class="col s3">97</div>
+                                <div class="col s8 flow-text">Weather of the Day you Travel</div>
+                            </div>
                         </div>
-
                     </div>
                 </li>
             </ul>
 
             <!--API 2 - Hotel-->
-
             <ul class="collapsible col s12 m8 l5 hoverable right">
                 <li>
                     <div class="collapsible-header flow-text">
@@ -117,7 +97,7 @@
 
         <div class="row">
 
-            <!--API 3 - LOCAL-->
+            <!--API 3 - NEWS-->
 
             <ul class="collapsible col s12 m8 l5 hoverable left">
                 <li>
@@ -155,7 +135,12 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <!-- Custom JavaScripts-->
+    <script src="assets/java/logic.js"></script>
+    <script src="assets/java/openweather_api.js"></script>
+    <script src="assets/java/seatgeek_api.js"></script>
 
+    <!-- Materalize CSS Scrpt Settings -->
     <script>
 
         // Initialize Collapsible
@@ -165,7 +150,10 @@
 
         // Initialize Date Picker
         $(document).ready(function () {
-            $('.datepicker').datepicker();
+            $('.datepicker').datepicker({
+                format: 'mm/dd/yyyy',
+                container: document.body,
+            });
         });
 
         // Initialize Modals
@@ -174,6 +162,31 @@
         });
 
     //    
+    </script>
+
+    <!-- JavaScript Settings from Nick-->
+    <script>
+
+        $("#searchBtn").on("click", function (event) {
+
+            // event.preventDefault() prevents the form from trying to submit itself.
+            // We're using a form so that the user can hit enter instead of clicking the button if they want
+            event.preventDefault();
+
+            // This line will grab the text from the input box
+            searchCity = $("#location").val().trim();
+
+            // This line will grab the startDate from the input box
+            startDate = $("#startdatepicker").val().trim();
+
+            // This line will grab the endDate from the input box
+            endDate = $("#enddatepicker").val().trim();
+
+            callSeatGeek(searchCity, startDate, endDate);
+            callOpenWeather(searchCity);
+
+        });
+
     </script>
 
 </body>
