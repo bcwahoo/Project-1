@@ -73,7 +73,10 @@
                             <div class="row">
                                 <!--First Class of the API will go here-->
                                 <div id="box-weather" class="col s3">97</div>
-                                <div class="col s8 flow-text">Weather of the Day you Travel</div>
+                                <div class="col s8 flow-text">Weather of the Day you Travel
+                                    <!-- <canvas id="myChart" width="200" height="200"></canvas> -->
+                                </div>
+                           
                             </div>
                         </div>
                     </div>
@@ -140,6 +143,7 @@
     <script src="assets/java/openweather_api.js"></script>
     <script src="assets/java/seatgeek_api.js"></script>
     <script src="assets/java/zomato.js"></script>
+    <script src="assets/java/news_api.js"></script>
 
     <!-- Materalize CSS Scrpt Settings -->
     <script>
@@ -189,9 +193,10 @@
 
             console.log(endDate);
 
-            callSeatGeek(searchCity, startDate, endDate);
-            callOpenWeather(searchCity);
-            callZomato(searchCity);
+            // callSeatGeek(searchCity, startDate, endDate);
+            // callOpenWeather(searchCity);
+            // callZomato(searchCity);
+            callNews(searchCity);
 
         });
 
