@@ -1,0 +1,67 @@
+<input type="date" class="datepicker" />
+</div>
+</form>
+<div class="input-field col s10">
+    <input value="Where would you like to go?" id="location" type="text" class="validate">
+    <label class="active" for="location">Enter a Destination</label>
+    <!--Search Button placeholder-->
+    <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+    <div class="box-hotel card-panel hoverable col s12 m5 #ba68c8 purple lighten-2 left">HOTEL DIV</div>
+    <div class="box-ent card-panel hoverable col s12 m5 #43a047 green darken-1 right">ENTERTAINMENT DIV</div>
+</div>
+
+</div>
+<!-- Here is the end of "Main Container" -->
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!--Link to app script files-->
+<script src="assets/java/openweather_api.js"></script>
+
+<script src="assets/java/seatgeek_api.js"></script>
+
+<script src="assets/java/zomato_api.js"></script>
+
+<script src="assets/java/news_api.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    $("#searchBtn").on("click", function (event) {
+
+        // We're using a form so that the user can hit enter instead of clicking the button if they want
+        event.preventDefault();
+
+        // This line will grab the text from the input box
+        searchCity = $("#location").val().trim();
+
+        // This line will grab the startDate from the input box
+        startDate = $(".datepicker").val().trim();
+
+        // This line will grab the endDate from the input box
+        //END DATE NEEDS TO BE ADDED TO INDEX FILE
+        endDate = $(".datepicker").val().trim();
+
+        // callSeatGeek(searchCity,startDate,endDate);
+        // callOpenWeather(searchCity);
+        // callZomato(searchCity);
+        callNewsAPI(searchCity);
+
+    });
+
+</script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+
+</body>
+
+</html>

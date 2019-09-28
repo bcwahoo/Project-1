@@ -10,11 +10,11 @@ $(document.body).on("click", "#concertList", function () {
     console.log("searchCity: " + searchCity);
 
     // This line will grab the startDate from the input box
-    startDate = $(".datepicker").val().trim();
+    startDate = $("#startdatepicker").val().trim();
     console.log("startDate: " + startDate);
 
     // This line will grab the endDate from the input box
-    endDate = $(".datepicker").val().trim();
+    endDate = $("#enddatepicker").val().trim();
     console.log("endDate: " + endDate);
 
     eventType = "Concert";
@@ -28,11 +28,11 @@ $(document.body).on("click", "#theaterList", function () {
     console.log("searchCity: " + searchCity);
 
     // This line will grab the startDate from the input box
-    startDate = $(".datepicker").val().trim();
+    startDate = $("#startdatepicker").val().trim();
     console.log("startDate: " + startDate);
 
     // This line will grab the endDate from the input box
-    endDate = $(".datepicker").val().trim();
+    endDate = $("#enddatepicker").val().trim();
     console.log("endDate: " + endDate);
 
     eventType = "Theater";
@@ -46,11 +46,11 @@ $(document.body).on("click", "#sportsList", function () {
     console.log("searchCity: " + searchCity);
 
     // This line will grab the startDate from the input box
-    startDate = $(".datepicker").val().trim();
+    startDate = $("#startdatepicker").val().trim();
     console.log("startDate: " + startDate);
 
     // This line will grab the endDate from the input box
-    endDate = $(".datepicker").val().trim();
+    endDate = $("#enddatepicker").val().trim();
     console.log("endDate: " + endDate);
 
     eventType = "Sports";
@@ -100,16 +100,14 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
                         $(eventsP).append("<br/>" + "<img width=30 height=30 src = " + response.events[i].performers[0].image + ">");
                     }
                     $(eventsP).append("  " +
-                        response.events[i].datetime_local[5] +
-                        response.events[i].datetime_local[6] +
+                    response.events[i].datetime_local.substr(5,2) +
                         "/" +
-                        response.events[i].datetime_local[8] +
-                        response.events[i].datetime_local[9] +
-                        ": " + response.events[i].title);
+                        response.events[i].datetime_local.substr(8,2) +
+                        ": " + 
+                        response.events[i].title);
                 };
             }
 
-            // $("#concertsOutput").prepend(eventsP);
             $("#box-ent").prepend(eventsP);
 
         });
