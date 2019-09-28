@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SuitCase_Mat</title>
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<style type=text/css> 
+
+/* ________________________________________________________________________________________ */
+
+
+/*  BELOW: MEDIA QUERY FOR STACKED LAYOUT APPEARANCE WHEN APP IS DISPLAYED ON MOBILE/RESPONSIVE DEVICE */
+
+@media only screen and (max-width: 600px){
+
+body {
+    background-color: lightsteelblue;
+}
+   .container {
+
+    display: flex;
+    flex-direction: column; 
+    flex-wrap: wrap;        }  
+
+      #middle { order:2; } /*(APIs div)*/
+      #bottom { order:3; } /*(APIs div)*/
+      #top { order:1; } /*(SUITCASE MAIN INPUT div)*/
+
+  }
+/* ________________________________________________________________________________________ */
+
+/* BELOW: DESKTOP/MAIN LAYOUT APPEARANCE WHEN APP IS DISPLAY */
+
+   
+
+    .invisible{
+    height: 325px; width: 325px; 
+
+ }
+
+    #start {
+        height: 325px; width: 325px; 
+        background-color: grey; 
+        opacity: 1; 
+        
+        } 
+
+
+        #API-1{  
+        height: 325px; width: 325px; 
+        background-color: blue; 
+        opacity: 1; 
+        } 
+
+        #API-2
+        { 
+            height: 325px; width: 325px; 
+        background-color: yellow; 
+        opacity: 1; 
+        } 
+
+        #API-3
+        { 
+            height: 325px; width: 325px; 
+        background-color: red; 
+        opacity: 1; 
+        } 
+
+        #API-4
+        { 
+            height: 325px; width: 325px; 
+        background-color: green; 
+        opacity: 1; 
+        } 
+
+/* ________________________________________________________________________________________ */
+</style> 
+
+<body>
+
+        <div class="container">
+            <h1>SUITCASE</h1>
+            <br>
+        </div>
+        
+        <div class="container">
+        
+          <!-- FIRST ROW (TOP) ON DESKTOP DISPLAY & MIDDLE ROW ON STACK/MOBILE – APIs 1 and 2-->
+
+            <div id="middle">
+        
+                <div class="row">
+                    <div class="col s12 m4 l4">
+                        <div id="API-1">API-1</div>
+                    </div>
+        
+                    <div class="hide-on-small-only">
+                        <div class="col s12 m4 l4">
+                            <div class="invisible"></div>
+                        </div>
+                    </div>
+        
+                    <div class="col s12 m4 l4">
+                        <div id="API-2">API-2</div>
+                    </div>
+                </div>
+        
+            </div>
+        
+        <!-- SECOND ROW (MIDDLE) ON DESKTOP DISPLAY & TOP ROW ON STACK/MOBILE * SUITCASE ICON/BUTTON * -->
+
+            <div id="top">
+        
+                <div class="row">
+        
+                    <div class="hide-on-small-only">
+                        <div class="col s12 m4 l4">
+                            <div class="invisible"></div>
+                        </div>
+                    </div>
+        
+                    <div class="col s12 m4 l4">
+                        <div id="start"><button id="gotravel" value="suitcase">start</button></div>
+                    </div>
+        
+                    <div class="hide-on-small-only">
+                        <div class="col s12 m4 l4">
+                            <div class="invisible"></div>
+                        </div>
+                    </div>
+        
+                </div>
+        
+            </div>
+        
+         <!-- THIRD ROW (BOTTOM) ON DESKTOP DISPLAY & BOTTOM ROW ON STACK/MOBILE – APIs 3 and 4 -->
+        
+            <div id="bottom">
+        
+                <div class="row">
+                    <div class="col s12 m4 l4">
+                        <div id="API-3">API-3</div>
+                    </div>
+        
+                    <div class="hide-on-small-only">
+                        <div class="col s12 m4 l4">
+                            <div class="invisible"></div>
+                        </div>
+                    </div>
+        
+                    <div class="col s12 m4 l4">
+                        <div id="API-4">API-4</div>
+                    </div>
+                </div>
+        
+            </div>
+        
+        
+        
+        </div>
+
+</body>
+
+</html>

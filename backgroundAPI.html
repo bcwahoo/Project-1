@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+    body {
+        background-image: 
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Where Do you want to go?" id="dest-city" type="text" class="validate">
+                    <label for="dest_city">Pick a city</label>
+                </div>
+            </div>
+
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+
+            <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+                <li class="tab"><a href="#test1">Test 1</a></li>
+                <li class="tab"><a class="active" href="#test2">Test 2</a></li>
+                <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
+                <li class="tab"><a href="#test4">Test 4</a></li>
+                <li class="tab"><a href="#test0">Test 5</a></li>
+              </ul>
+              <div id="test1" class="col s12"><p>Test 1</p></div>
+              <div id="test2" class="col s12"><p>Test 2</p></div>
+              <div id="test3" class="col s12"><p>Test 3</p></div>
+              <div id="test4" class="col s12"><p>Test 4</p></div>
+              <div id="test0" class="col s12"><p>Test 5</p></div>
+
+            <!-- Compiled and minified JavaScript -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+            <script type="text/javascript">
+                  $(document).ready(function(){
+    $('.tabs').tabs();
+  });
+            </script>
+
+            <script type="text/javascript">
+                // Event listener for our cat-button
+                $("#cat-button").on("click", function () {
+
+                    // Storing our giphy API URL for a random cat image
+                    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=cats";
+
+                    // Perfoming an AJAX GET request to our queryURL
+                    $.ajax({
+                        url: queryURL,
+                        method: "GET"
+                    })
+
+                        // After the data from the AJAX request comes back
+                        .then(function (response) {
+
+                            // Saving the image_original_url property
+                            var imageUrl = response.data.image_original_url;
+
+                            // Creating and storing an image tag
+                            var catImage = $("<img>");
+
+                            // Setting the catImage src attribute to imageUrl
+                            catImage.attr("src", imageUrl);
+                            catImage.attr("alt", "cat image");
+
+                            // Prepending the catImage to the images div
+                            $("#images").prepend(catImage);
+                        });
+                });
+            </script>
+</body>
+
+</html>
