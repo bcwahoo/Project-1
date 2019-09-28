@@ -81,7 +81,7 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
         // After data comes back from the request
         .then(function (response) {
 
-            $(".box-ent").html("");
+            $("#box-ent").html("");
 
             console.log(response);
             var eventsP = $("<p>");
@@ -108,9 +108,9 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
                         ": " + response.events[i].title);
                 };
             }
-debugger;
+
             // $("#concertsOutput").prepend(eventsP);
-            $(".box-ent").prepend(eventsP);
+            $("#box-ent").prepend(eventsP);
 
         });
 }

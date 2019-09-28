@@ -25,7 +25,7 @@ var weatherDetails = [{ date: "", city: "", country: "", weather: "", maxtemp: "
             var weatherP = $("<p>").text("City: " + response.city.name);
             weatherP.append("<br/>" + "Conditions: " + response.list[0].weather[0].main);
 
-            $(".box-weather").prepend(weatherP);
+            $("#box-weather").prepend(weatherP);
             // $("#weatherOutput").prepend(weatherP);
 
             // Graphing output
