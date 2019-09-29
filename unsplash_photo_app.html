@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Link html to CSS reset -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    ​
+    <!-- Link html to the Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Link html to the CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Charts.js Reference -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+    <h1>UNSPLASH IMAGES API!</h1>
+
+    <div class="container main center-align">
+        <div class="row">
+            <div class="box-local card-panel hoverable col s12 m5 #00acc1 cyan darken-1 left">LOCAL DIV
+                <div class="input-field col s10">
+                    <input id="location" type="text" class="validate">
+                    <label class="active" for="location"></label>
+
+
+
+                    <!--Search Button placeholder-->
+
+                    <button id="searchBtn" type="submit">Get Photo</button>
+
+                </div>
+
+
+                <!-- Placeholder for weather graph --->
+                <canvas id="myChart" width="200" height="200"></canvas>
+            </div>
+        </div>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        var apiKey = "81469a812c5261841bb7a1753b4ffaffc926a4058d3da92602941efbe15e1bdb";
+        var secretKey = "f80acb2f9001035aa32cb15e142399c65428f9ca5895a6274241613ec8d26753";
+
+        // This function handles events where one button is clicked
+        $("#searchBtn").on("click", function (event) {
+
+            // event.preventDefault() prevents the form from trying to submit itself.
+            // We're using a form so that the user can hit enter instead of clicking the button if they want
+            event.preventDefault();
+
+            // This line will grab the text from the input box
+            var searchCity = $("#location").val().trim();
+            console.log(searchCity);
+
+            getImage(searchCity);
+
+
+        });
+
+        function getImage(searchCity) {
+            $.ajax({
+                url: "https://api.unsplash.com/search/photos/?client_id=" + apiKey + "&query=" + searchCity,
+                method: "GET"
+            })
+                // After data comes back from the request
+                .then(function (res) {
+                    console.log(res);
+                    console.log(res.results[1].id);
+                    var imageID = res.results[1].id;
+                    console.log(imageID);
+
+                    var imageURL = res.results[1].urls.full;
+                    console.log(imageURL);
+
+                    $(document.body).css('background-image', "url("+ imageURL +")" );
+                });
+
+
+
+        }
+    });
+
+
+
+</script>
+
+
+</html>
