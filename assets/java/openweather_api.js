@@ -20,7 +20,6 @@ function callOpenWeather(destCity) {
         .then(function (response) {
 
             var weatherP = $("<p>");
-
             weatherP.append("<br/>");
             weatherP.append("<br/>" + (response.list[0].dt_txt).substr(5, 5) + ":  " + (parseInt((response.list[0].main.temp_max - 273.15) * 1.8) + 32) + "F     " + response.list[0].weather[0].main);
             weatherP.append("<br/>" + (response.list[8].dt_txt).substr(5, 5) + ":  " + (parseInt((response.list[8].main.temp_max - 273.15) * 1.8) + 32) + "F     "+ response.list[8].weather[0].main);

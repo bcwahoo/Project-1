@@ -73,7 +73,6 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
         .then(function (response) {
 
             $("#box-ent").html("");
-
             console.log(response);
             var eventsP = $("<p>");
 

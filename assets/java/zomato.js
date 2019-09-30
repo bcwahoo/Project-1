@@ -47,6 +47,7 @@ function callZomato(destCity) {
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.average_cost_for_two);
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.user_rating.aggregate_rating);
                     };
+                    
                     $("#box-restaurants").prepend(restaurantsP);
                 })
 
