@@ -7,15 +7,12 @@ $(document.body).on("click", "#concertList", function () {
 
     // This line will grab the text from the input box
     searchCity = $("#location").val().trim();
-    console.log("searchCity: " + searchCity);
 
     // This line will grab the startDate from the input box
     startDate = $("#startdatepicker").val().trim();
-    console.log("startDate: " + startDate);
 
     // This line will grab the endDate from the input box
     endDate = $("#enddatepicker").val().trim();
-    console.log("endDate: " + endDate);
 
     eventType = "Concert";
     callAPI(searchCity, startDate, endDate, eventType);
@@ -25,15 +22,12 @@ $(document.body).on("click", "#theaterList", function () {
 
     // This line will grab the text from the input box
     searchCity = $("#location").val().trim();
-    console.log("searchCity: " + searchCity);
 
     // This line will grab the startDate from the input box
     startDate = $("#startdatepicker").val().trim();
-    console.log("startDate: " + startDate);
 
     // This line will grab the endDate from the input box
     endDate = $("#enddatepicker").val().trim();
-    console.log("endDate: " + endDate);
 
     eventType = "Theater";
     callAPI(searchCity, startDate, endDate, eventType);
@@ -43,15 +37,12 @@ $(document.body).on("click", "#sportsList", function () {
 
     // This line will grab the text from the input box
     searchCity = $("#location").val().trim();
-    console.log("searchCity: " + searchCity);
 
     // This line will grab the startDate from the input box
     startDate = $("#startdatepicker").val().trim();
-    console.log("startDate: " + startDate);
 
     // This line will grab the endDate from the input box
     endDate = $("#enddatepicker").val().trim();
-    console.log("endDate: " + endDate);
 
     eventType = "Sports";
     callAPI(searchCity, startDate, endDate, eventType);
@@ -82,9 +73,9 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
         .then(function (response) {
 
             $("#box-ent").html("");
-
             console.log(response);
             var eventsP = $("<p>");
+
             // Write list of concerts to the DOM
             $(eventsP).append("<button id='concertList'>Concerts</button>");
             $(eventsP).append("<button id='theaterList'>Theater</button>");
@@ -100,10 +91,10 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
                         $(eventsP).append("<br/>" + "<img width=30 height=30 src = " + response.events[i].performers[0].image + ">");
                     }
                     $(eventsP).append("  " +
-                    response.events[i].datetime_local.substr(5,2) +
+                        response.events[i].datetime_local.substr(5, 2) +
                         "/" +
-                        response.events[i].datetime_local.substr(8,2) +
-                        ": " + 
+                        response.events[i].datetime_local.substr(8, 2) +
+                        ": " +
                         response.events[i].title);
                 };
             }

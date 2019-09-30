@@ -37,33 +37,18 @@ function callZomato(destCity) {
 
                 // After data comes back from the request
                 .then(function (response2) {
-
                     console.log(response2);
 
                     var restaurantsP = $("<p>");
-
-
                     for (var i = 0; i < response2.restaurants.length; i++) {
-
-
-                        console.log(response2.restaurants[i].restaurant.name);
-                        console.log(response2.restaurants[i].restaurant.location.address);
-                        console.log(response2.restaurants[i].restaurant.cuisines);
-                        console.log(response2.restaurants[i].restaurant.average_cost_for_two);
-                        console.log(response2.restaurants[i].restaurant.user_rating.aggregate_rating);
-
-
-
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.name);
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.location.address);
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.cuisines);
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.average_cost_for_two);
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.user_rating.aggregate_rating);
-
                     };
-
+                    
                     $("#box-restaurants").prepend(restaurantsP);
-
                 })
 
         })

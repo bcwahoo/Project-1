@@ -20,18 +20,22 @@
 
     <!-- Data Input & Modal Setup -->
     <div class="main">
-        
-        <!-- Modal Trigger -->
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
 
-        <div class="row clear center-align">
-            <img class="col s2 offset-s5" style="width: 200px; height: 200px" src="assets/images/SuitCase.png">
-            <a class="waves-effect waves-light btn-large col s12 m6 offset-m3 modal-trigger" href="#modal1">Click Here
-                Start SuitCase</a>
-        </div>
-        
-        <!-- Modal Structure -->
-        
-        <div class="row">            
+                <ul class="collapsible hoverable">
+                    <li class="active">
+                        <div class="collapsible-header flow-text center-align">
+                            <!-- Modal Trigger -->
+                            <a class=" modal-trigger center-align" href="#modal1">
+                                Click Here to Start SuitCase
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Modal Structure -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
                     <div class="row">
@@ -50,6 +54,7 @@
                             <label for="location">Where do you want to go?</label>
                             <br /><br />
                             <!--    Submit Button   -->
+
                             <button id="searchBtn" class="modal-close btn waves-effect waves-light col s12"
                                 type="submit" name="action">Submit
                                 <i class="material-icons right">send</i>
@@ -72,12 +77,11 @@
                     <div class="collapsible-body teal lighten-2">
                         <div class="card-panel ">
                             <div class="row">
+                                <div class="col s8 flow-text">Weather of the Day you Travel</div>
                                 <!--First Class of the API will go here-->
-                                <div id="box-weather" class="col s3">97</div>
-                                <div class="col s8 flow-text">Weather of the Day you Travel
-                                    <!-- <canvas id="myChart" width="200" height="200"></canvas> -->
+                                <div id="box-weather" class="col s12">
+                                    <canvas id="myChart" width="200" height="200"></canvas>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -90,7 +94,9 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Restaurants</div>
                     <div class="collapsible-body teal lighten-2">
-                        <div id="box-restaurants" class="card-panel ">This is a card panel with a teal lighten-2 class
+
+                        <div id="box-restaurants" class="card-panel ">
+
                         </div>
                     </div>
                 </li>
@@ -108,7 +114,7 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Local</div>
                     <div class="collapsible-body teal lighten-2">
-                        <div id="box-news" class="card-panel ">This is a card panel with a teal lighten-2 class
+                        <div id="box-news" class="card-panel ">
                         </div>
 
                     </div>
@@ -122,6 +128,9 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Entertainment</div>
                     <div class="collapsible-body teal lighten-2">
+
+                        <div id="box-ent" class="card-panel ">
+
 
                         <div class="card">
 
@@ -146,9 +155,6 @@
                                     This is a card panel with a teal lighten-2 class
                                 </div>
                             </div>
-
-
-
                         </div>
                 </li>
             </ul>
@@ -225,6 +231,7 @@
             callOpenWeather(searchCity);
             callZomato(searchCity);
             callNews(searchCity);
+            // callWikipedia(searchCity);
 
         });
 
