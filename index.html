@@ -47,12 +47,16 @@
                             <input type="text" class="datepicker" id="enddatepicker">
                             <label for="enddatepicker">When do you want to return?</label>
                             <!--    Destinition     -->
-                            <input placeholer="U.S. Cities Only" id="location" type="text" class="validate">
+                            <input placeholer="U.S. Cities Only" id="location" type="text" class="validate" ">
+                            
+                            <!-- Fix Pattern pattern=" [a-zA-Z]+ -->
+
                             <label for="location">Where do you want to go?</label>
                             <br /><br />
                             <!--    Submit Button   -->
-                            <button id="searchBtn" class="btn waves-effect waves-light col s12" type="submit"
-                                name="action">Submit
+
+                            <button id="searchBtn" class="modal-close btn waves-effect waves-light col s12"
+                                type="submit" name="action">Submit
                                 <i class="material-icons right">send</i>
                             </button>
                         </form>
@@ -90,7 +94,9 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Restaurants</div>
                     <div class="collapsible-body teal lighten-2">
+
                         <div id="box-restaurants" class="card-panel ">
+
                         </div>
                     </div>
                 </li>
@@ -122,9 +128,34 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Entertainment</div>
                     <div class="collapsible-body teal lighten-2">
+
                         <div id="box-ent" class="card-panel ">
+
+
+                        <div class="card">
+
+                            <div class="card-tabs">
+
+                                <!--Nick: Use this Tab for the links-->
+
+                                <ul class="tabs tabs-fixed-width">
+                                    <li class="tab"><a href="#concert">Concerts</a></li>
+                                    <li class="tab"><a href="#theather">Theather</a></li>
+                                    <li class="tab"><a href="#sport">Sports</a></li>
+                                </ul>
+
+                                <div id="box-ent" class="card-content ">
+                                    <!--Nick: These are the corresponding tabs the divs will live in-->
+
+                                    <div id="concert">Test 1</div>
+                                    <div id="theather">Test 2</div>
+                                    <div id="sport">Test 3</div>
+
+
+                                    This is a card panel with a teal lighten-2 class
+                                </div>
+                            </div>
                         </div>
-                    </div>
                 </li>
             </ul>
 
@@ -145,7 +176,7 @@
     <script src="assets/java/seatgeek_api.js"></script>
     <script src="assets/java/zomato.js"></script>
     <script src="assets/java/news_api.js"></script>
-    <script src="assets/java/wikipedia_api.js"></script>
+    <script src="assets/java/background_api.js"></script>
 
     <!-- Materalize CSS Scrpt Settings -->
     <script>
@@ -160,6 +191,7 @@
             $('.datepicker').datepicker({
                 format: 'mm/dd/yyyy',
                 container: document.body,
+                minDate: new Date(2019, 09, 01),
             });
         });
 
