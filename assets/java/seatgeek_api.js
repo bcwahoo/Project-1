@@ -74,6 +74,7 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
 
             $("#box-ent").html("");
             console.log(response);
+            debugger;
             var eventsP = $("<p>");
 
             // Write list of concerts to the DOM
