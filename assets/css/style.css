@@ -4,19 +4,22 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #464646;
+  background-color: #faf6f6;
 }
 .main {
   width: 80%;
   margin: 10%;
   padding: 10px;
-  /* border: 2px solid #dddddd; */
   flex: 1 0 auto; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
 }
 .round-box {
   -webkit-border-radius: 20px;
   border-radius: 20px;
   padding: 10px;
+}
+.card-panel {
+  height: 400px;
+  overflow: scroll;
 }
 
 .clear {
