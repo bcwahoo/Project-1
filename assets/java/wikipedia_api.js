@@ -13,14 +13,6 @@ function callWikipedia(destCity) {
             console.log(response);
 
             var wikiP = $("<p>");
-            // for (var i = 0; i < response.articles.length; i++) {
-
-
-            //     console.log(response.articles[i].title);
-
-            //     $(newsP).append("<br/>" + "<br/>" + response.articles[i].title);
-            // };
-
             $("#box-news").prepend(newsP);
 
         })

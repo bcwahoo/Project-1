@@ -21,7 +21,12 @@
     <!-- Data Input & Modal Setup -->
     <div class="main">
         <div class="row">
-            <div class="col s12 m6 offset-m3">
+            <div class="col s3 offset-s3">
+                <img src="assets/images/SuitCase.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+                        <div class="col s12 m6 offset-m3">
 
                 <ul class="collapsible hoverable">
                     <li class="active">
@@ -49,9 +54,7 @@
                             <!--    Destinition     -->
                             <input placeholer="U.S. Cities Only" id="location" type="text" class="validate" ">
                             
-                            <!-- Fix Pattern pattern=" [a-zA-Z]+ -->
-
-                            <label for="location">Where do you want to go?</label>
+                            <label for=" location">Where do you want to go?</label>
                             <br /><br />
                             <!--    Submit Button   -->
 
@@ -75,10 +78,11 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Weather</div>
                     <div class="collapsible-body teal lighten-2">
-                        <div class="card-panel ">
+                        <div class="card-panel">
                             <div class="row">
-                                <div class="col s8 flow-text"></div>
-                                <div id="box-weather" class="col s12" class="flow-text"></div>
+                                <div id="box-weather" class="col s12 flow-text">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -92,7 +96,7 @@
                         <i class="material-icons">filter_drama</i>Restaurants</div>
                     <div class="collapsible-body teal lighten-2">
 
-                        <div id="box-restaurants" class="card-panel" class="flow-text">
+                        <div id="box-restaurants" class="card-panel flow-text">
 
                         </div>
                     </div>
@@ -111,7 +115,7 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Local</div>
                     <div class="collapsible-body teal lighten-2">
-                        <div id="box-news" class="card-panel" class="flow-text">
+                        <div id="box-news" class="card-panel flow-text">
                         </div>
 
                     </div>
@@ -125,16 +129,17 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Entertainment</div>
                     <div class="collapsible-body teal lighten-2">
-
-                        <div id="box-ent" class="card-panel" class="flow-text">
-
-
-                            <div class="card">
-
-                                <div class="card-tabs">
-                                </div>
-                            </div>
+                        <div class="card-tabs">
+                            <ul class="tabs">
+                                <li class="tab"><a id="concertList">Concert</a></li>
+                                <li class="tab"><a id="theaterList">Theater</a></li>
+                                <li class="tab"><a id="sportsList">Sports</a></li>
+                            </ul>
                         </div>
+                        <div id="box-ent" class="card-panel flow-text">
+                            test
+                        </div>
+                    </div>
                 </li>
             </ul>
 
@@ -150,7 +155,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!-- Custom JavaScripts-->
-    <script src="assets/java/logic.js"></script>
     <script src="assets/java/openweather_api.js"></script>
     <script src="assets/java/seatgeek_api.js"></script>
     <script src="assets/java/zomato.js"></script>
@@ -159,7 +163,6 @@
 
     <!-- Materalize CSS Scrpt Settings -->
     <script>
-
         // Initialize Collapsible
         $(document).ready(function () {
             $('.collapsible').collapsible();
@@ -167,9 +170,11 @@
 
         // Initialize Date Picker
         $(document).ready(function () {
+
             $('.datepicker').datepicker({
                 format: 'mm/dd/yyyy',
                 container: document.body,
+                autoClose: true,
                 minDate: new Date(2019, 09, 01),
             });
         });
@@ -177,12 +182,10 @@
         // Initialize Modals
         $(document).ready(function () {
             $('.modal').modal();
-        });
-
-    //    
+        });  
     </script>
 
-    <!-- JavaScript Settings from Nick-->
+    <!-- JavaScript Settings to Call APIs-->
     <script>
 
         $("#searchBtn").on("click", function (event) {
