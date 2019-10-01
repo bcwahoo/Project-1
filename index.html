@@ -73,10 +73,10 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Weather</div>
                     <div class="collapsible-body teal lighten-2">
-                        <div class="card-panel">
+                        <div class="card-panel scrollbar-outer">
                             <div class="row">
-                                <div id="box-weather" class="col s12" class="flow-text">
-                                    
+                                <div id="box-weather" class="col s12 flow-text">
+
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                         <i class="material-icons">filter_drama</i>Restaurants</div>
                     <div class="collapsible-body teal lighten-2">
 
-                        <div id="box-restaurants" class="card-panel" class="flow-text">
+                        <div id="box-restaurants" class="card-panel scrollbar-outer flow-text">
 
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Local</div>
                     <div class="collapsible-body teal lighten-2">
-                        <div id="box-news" class="card-panel" class="flow-text">
+                        <div id="box-news" class="card-panel scrollbar-outer flow-text">
                         </div>
 
                     </div>
@@ -125,7 +125,7 @@
                         <i class="material-icons">filter_drama</i>Entertainment</div>
                     <div class="collapsible-body teal lighten-2">
 
-                        <div class="card flow-text">
+                        <div class="card-panel flow-text">
                             <div class="card-tabs">
                                 <ul class="tabs tabs-fixed-width flow-text">
                                     <li class="tab"><a id="concertList">Concert</a></li>
@@ -133,8 +133,8 @@
                                     <li class="tab"><a id="sportsList">Sports</a></li>
                                 </ul>
                             </div>
-                            <div id ="box-ent" class="card-content">
-                               
+                            <div id="box-ent" class="card-content scrollbar-outer">
+
                             </div>
                         </div>
                 </li>
@@ -160,6 +160,10 @@
 
     <!-- Materalize CSS Scrpt Settings -->
     <script>
+        //JQuery Scrollbar
+        jQuery(document).ready(function () {
+            jQuery('.scrollbar-outer').scrollbar();
+        });
 
         // Initialize Collapsible
         $(document).ready(function () {
