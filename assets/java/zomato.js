@@ -39,6 +39,8 @@ function callZomato(destCity) {
                 .then(function (response2) {
                     console.log(response2);
 
+                    $("#box-restaurants").html("");
+
                     var restaurantsP = $("<p>");
                     for (var i = 0; i < response2.restaurants.length; i++) {
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.name);
