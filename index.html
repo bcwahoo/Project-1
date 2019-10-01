@@ -34,7 +34,7 @@
                     </li>
                 </ul>
             </div>
-            
+
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
@@ -77,9 +77,8 @@
                     <div class="collapsible-body teal lighten-2">
                         <div class="card-panel ">
                             <div class="row">
-                                <div class="col s8 flow-text">Weather while you are there:</div>
-                                <!--First Class of the API will go here-->
-                                <div id="box-weather" class="col s12"  class="flow-text"></div>
+                                <div class="col s8 flow-text"></div>
+                                <div id="box-weather" class="col s12" class="flow-text"></div>
                             </div>
                         </div>
                     </div>
@@ -112,7 +111,7 @@
                     <div class="collapsible-header flow-text">
                         <i class="material-icons">filter_drama</i>Local</div>
                     <div class="collapsible-body teal lighten-2">
-                        <div id="box-news" class="card-panel"  class="flow-text">
+                        <div id="box-news" class="card-panel" class="flow-text">
                         </div>
 
                     </div>
@@ -130,9 +129,9 @@
                         <div id="box-ent" class="card-panel" class="flow-text">
 
 
-                        <div class="card">
+                            <div class="card">
 
-                            <div class="card-tabs">
+                                <div class="card-tabs">
                                 </div>
                             </div>
                         </div>
@@ -203,12 +202,12 @@
             // This line will grab the endDate from the input box
             endDate = $("#enddatepicker").val().trim();
 
-            callSeatGeek(searchCity, startDate, endDate);
+
+            // Call APIs
             callOpenWeather(searchCity);
             callZomato(searchCity);
+            callSeatGeek(searchCity, startDate, endDate);
             callNews(searchCity);
-            // callWikipedia(searchCity);
-
         });
 
     </script>

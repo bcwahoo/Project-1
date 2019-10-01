@@ -1,10 +1,6 @@
 function callOpenWeather(destCity) {
 
     var apiKey = "b335dca47af9b740159d13bca7acffe4";
-    var searchCity = "";
-    var startDate = "2019-09-24";
-    var endDate = "2019-09-30";
-    var weatherDetails = [{ date: "", city: "", country: "", weather: "", maxtemp: "", wind: "" }];
 
     // Constructing a queryURL using the animal name
     // 5 day / 3-hourly weather forecast for selected city (WORKING)
@@ -23,6 +19,9 @@ function callOpenWeather(destCity) {
             $("#box-weather").html("");
 
             var weatherP = $("<div>");
+
+            $(weatherP).append("5-day weather forecast for " + destCity + ":");
+
             weatherP.append("<br/>");
             weatherP.append("<br/>" + (response.list[0].dt_txt).substr(5, 2) + "/" + (response.list[0].dt_txt).substr(8, 2) + ":  " + (parseInt((response.list[0].main.temp_max - 273.15) * 1.8) + 32) + "F     " + response.list[0].weather[0].main + "<img src='http://openweathermap.org/img/wn/" + response.list[0].weather[0].icon + "@2x.png' width='50' height='50'>");
             weatherP.append("<br/>" + (response.list[0].dt_txt).substr(5, 2) + "/" + (response.list[8].dt_txt).substr(8, 2) + ":  " + (parseInt((response.list[8].main.temp_max - 273.15) * 1.8) + 32) + "F     " + response.list[8].weather[0].main + "<img src='http://openweathermap.org/img/wn/" + response.list[8].weather[0].icon + "@2x.png' width='50' height='50'>");

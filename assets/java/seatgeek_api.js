@@ -81,7 +81,7 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
             $(eventsP).append("<button id='theaterList'>Theater</button>");
             $(eventsP).append("<button id='sportsList'>Sports</button>");
             if (response.events.length === 0) {
-                $(eventsP).append("<br/>" + "Sorry - no " + eventType.toLowerCase() + " events found for these dates");
+                $(eventsP).append("<br/>" + "Sorry - no " + eventType.toLowerCase() + " events found for these dates.");
             } else {
                 $(eventsP).append("<br/>" + eventType + " events while you are there:");
                 for (var i = 0; i < response.events.length; i++) {
