@@ -78,9 +78,6 @@ function callAPI(destCity, fromDate, tillDate, eventType) {
             var eventsP = $("<p>");
 
             // Write list of concerts to the DOM
-            $(eventsP).append("<button id='concertList'>Concerts</button>");
-            $(eventsP).append("<button id='theaterList'>Theater</button>");
-            $(eventsP).append("<button id='sportsList'>Sports</button>");
             if (response.events.length === 0) {
                 $(eventsP).append("<br/>" + "Sorry - no " + eventType.toLowerCase() + " events found for these dates.");
             } else {
