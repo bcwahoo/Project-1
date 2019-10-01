@@ -4,7 +4,7 @@ function callNews(destCity) {
     // Constructing a queryURL
     var queryURL = "https://newsapi.org/v2/everything?sources=google-news&q=" + encodeURIComponent(destCity) + "&sortBy=publishedAt&apiKey=" + apiKey;
     console.log("queryURL: " + queryURL);
-    
+
     // Performing an AJAX request with the queryURL
     $.ajax({
         url: queryURL,
@@ -14,17 +14,26 @@ function callNews(destCity) {
         .then(function (response) {
             console.log(response);
 
+            $("#box-news").html("");
+
             var newsP = $("<p>");
 
-            $(newsP).append("Headlines for " + destCity + ":");
+            if (response.articles.length < 1) {
 
-            for (var i = 0; i < response.articles.length; i++) {
+                $(newsP).append("Sorry, no headlines found for " + destCity + ".");
 
+            } else {
 
-                console.log(response.articles[i].title);
+                $(newsP).append("Headlines for " + destCity + ":");
 
-                $(newsP).append("<br/>" + "<br/>" + response.articles[i].title);
-            };
+                for (var i = 0; i < response.articles.length; i++) {
+
+                    console.log(response.articles[i].title);
+
+                    $(newsP).append("<br/>" + "<br/>" + response.articles[i].title);
+                };
+
+            }
 
             $("#box-news").prepend(newsP);
 

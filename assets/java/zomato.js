@@ -42,12 +42,15 @@ function callZomato(destCity) {
                     $("#box-restaurants").html("");
 
                     var restaurantsP = $("<p>");
+                    $(restaurantsP).append("<br/>" + "Great places to eat in " + destCity + ":" + "<br/>");
+
                     for (var i = 0; i < response2.restaurants.length; i++) {
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.name);
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.location.address);
                         $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.cuisines);
-                        $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.average_cost_for_two);
-                        $(restaurantsP).append("<br/>" + response2.restaurants[i].restaurant.user_rating.aggregate_rating);
+                        $(restaurantsP).append("<br/>" + "Avg. cost for 2 people: " + response2.restaurants[i].restaurant.average_cost_for_two);
+                        $(restaurantsP).append("<br/>" + "Rating: " + response2.restaurants[i].restaurant.user_rating.aggregate_rating);
+                        $(restaurantsP).append("<br/>");
                     };
                     
                     $("#box-restaurants").prepend(restaurantsP);
